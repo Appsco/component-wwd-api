@@ -1,0 +1,64 @@
+{
+    "name": "bwc/app-mosaic",
+    "license": "proprietary",
+    "type": "project",
+    "description": "Mosaic sample app",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "repositories": [
+        { "type": "composer", "url": "http://git.appsco.com" }
+    ],
+    "require": {
+        "php": ">=5.4.1",
+        "bwc/lib-base": "dev-master",
+        "fp/openid-bundle": "2.0",
+        "bwc/lib-share": "v0.2.2",
+        "jquery/jquery": "1.10.2",
+        "jquery/jquery-ui": "1.10.3",
+        "twitter/bootstrap": "2.3.2",
+        "eternicode/bootstrap-datepicker": "1.2.0",
+        "jasny/bootstrap": "2.3.1"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+	    "BWC\\Share\\Composer\\Script::vendor2web"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+	    "BWC\\Share\\Composer\\Script::vendor2web"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "symfony-assets-install": "symlink",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "branch-alias": {
+            "dev-master": "2.2-dev"
+        },
+	"vendor2web": {
+            "jquery/jquery": "jquery_jquery",
+            "twitter/bootstrap": "twitter_bootstrap",
+            "eternicode/bootstrap-datepicker": "eternicode_bootstrap-datepicker",
+            "jasny/bootstrap": "jasny_bootstrap",
+            "jquery/jquery-ui": "jquery_ui"
+        }
+    }
+}
