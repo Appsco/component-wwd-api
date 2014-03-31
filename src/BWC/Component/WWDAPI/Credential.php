@@ -2,28 +2,33 @@
 
 namespace BWC\Component\WWDAPI;
 
-class Credential {
+class Credential
+{
 
   /**
-   * @var string
+   *
+   * @var string $Account
+   * @access public
    */
-  private $Account;
+  public $Account = null;
 
   /**
-   * @var string
+   *
+   * @var string $Password
+   * @access public
    */
-  private $Password;
+  public $Password = null;
 
-  public function __construct($account, $password) {
-    $this->Account = $account;
-    $this->Password = $password;
+  /**
+   *
+   * @param string $Account
+   * @param string $Password
+   * @access public
+   */
+  public function __construct($Account, $Password)
+  {
+    $this->Account = $Account;
+    $this->Password = $Password;
   }
 
-  public function getAccount() {
-    return $this->Account;
-  }
-
-  public function getPassword() {
-    return $this->Password;
-  }
 }

@@ -2,31 +2,60 @@
 
 namespace BWC\Component\WWDAPI;
 
-class OrderItem {
+class OrderItem
+{
 
   /**
-   * The WWD product ID from the catalog of the item being purchased
-   * @var integer
+   *
+   * @var int $productid
+   * @access public
    */
-  public $productid;
+  public $productid = null;
 
   /**
-   * The quantity of item being purchased
-   * @var integer
+   *
+   * @var string $parent_resource_id
+   * @access public
    */
-  public $quantity;
+  public $parent_resource_id = null;
 
   /**
-   * The duration of the purchase.
-   * @var float
+   *
+   * @var int $quantity
+   * @access public
    */
-  public $duration;
+  public $quantity = null;
 
-  public function __construct($productId, $quantity, $duration = 1) {
-    $this->productid = $productId;
+  /**
+   *
+   * @var string $riid
+   * @access public
+   */
+  public $riid = null;
+
+  /**
+   *
+   * @var float $duration
+   * @access public
+   */
+  public $duration = null;
+
+  /**
+   *
+   * @param int $productid
+   * @param string $parent_resource_id
+   * @param int $quantity
+   * @param string $riid
+   * @param float $duration
+   * @access public
+   */
+  public function __construct($productid, $parent_resource_id = null, $quantity = 1, $riid = "1", $duration = 1.0)
+  {
+    $this->productid = $productid;
+    $this->parent_resource_id = $parent_resource_id;
     $this->quantity = $quantity;
+    $this->riid = $riid;
     $this->duration = $duration;
-    $this->riid = rand(1, 50);
   }
 
 }

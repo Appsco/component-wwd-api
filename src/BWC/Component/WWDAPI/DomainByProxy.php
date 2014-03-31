@@ -2,36 +2,51 @@
 
 namespace BWC\Component\WWDAPI;
 
-class DomainByProxy {
+class DomainByProxy
+{
 
   /**
-   * Second level domain name
-   * @var string
+   *
+   * @var OrderItem $order
+   * @access public
    */
-  public $sld;
+  public $order = null;
 
   /**
-   * Top level domain name
-   * @var string
+   *
+   * @var string $sld
+   * @access public
    */
-  public $tld;
+  public $sld = null;
 
   /**
-   * The resource ID
-   * @var string
+   *
+   * @var string $tld
+   * @access public
    */
-  public $resourceid;
+  public $tld = null;
 
-  public function __construct(OrderItem $item, $sld, $tld, $resourceId = null, $riid = null) {
-    $this->order = $item;
+  /**
+   *
+   * @var string $resourceid
+   * @access public
+   */
+  public $resourceid = null;
+
+  /**
+   *
+   * @param OrderItem $order
+   * @param string $sld
+   * @param string $tld
+   * @param string $resourceid
+   * @access public
+   */
+  public function __construct($order, $sld, $tld, $resourceid)
+  {
+    $this->order = $order;
     $this->sld = $sld;
     $this->tld = $tld;
-    $this->resourceid = $resourceId;
-    if ($riid) {
-      $this->riid = $riid;
-    } else {
-      $this->riid = rand(1, 50);
-    }
+    $this->resourceid = $resourceid;
   }
 
 }

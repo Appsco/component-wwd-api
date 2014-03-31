@@ -2,67 +2,134 @@
 
 namespace BWC\Component\WWDAPI;
 
-class DomainRegistration {
+class DomainRegistration
+{
 
   /**
-   * Step #3
-   * {"@attributes":{"user":"834023","svTRID":"order.155499","clTRID":"519a2af1c7d4d"},"result":{"@attributes":{"code":"1000"},"msg":"processed 2 items"},"resdata":{"orderid":"155499"}}
+   *
+   * @var OrderItem $order
+   * @access public
    */
+  public $order = null;
 
   /**
-   * Order information
-   * @var OrderItem
+   *
+   * @var string $sld
+   * @access public
    */
-  public $order;
+  public $sld = null;
 
   /**
-   * Second level domain name
-   * @var string
+   *
+   * @var string $tld
+   * @access public
    */
-  public $sld;
+  public $tld = null;
 
   /**
-   * Top level domain name
-   * @var string
+   *
+   * @var string $idnScript
+   * @access public
    */
-  public $tld;
+  public $idnScript = null;
 
   /**
-   * Length of the registration in years
-   * @var integer
+   *
+   * @var int $period
+   * @access public
    */
-  public $period;
+  public $period = null;
 
   /**
-   * The registrant contact
-   * @var ContactInfo
+   *
+   * @var ContactInfo $registrant
+   * @access public
    */
-  public $registrant;
+  public $registrant = null;
 
   /**
-   * @var array
+   *
+   * @var Nexus $nexus
+   * @access public
    */
-  public $nsArray;
+  public $nexus = null;
 
   /**
-   * Auto-renew
-   * @var integer
+   *
+   * @var NS[] $nsArray
+   * @access public
    */
-  public $autorenewflag = 1;
+  public $nsArray = null;
 
-  public function __construct(OrderItem $order, $sld, $tld, $period, ContactInfo $registrant, array $nsArray, Nexus $nexus = null) {
-    $this->order = (array) $order;
+  /**
+   *
+   * @var ContactInfo $admin
+   * @access public
+   */
+  public $admin = null;
+
+  /**
+   *
+   * @var ContactInfo $billing
+   * @access public
+   */
+  public $billing = null;
+
+  /**
+   *
+   * @var ContactInfo $tech
+   * @access public
+   */
+  public $tech = null;
+
+  /**
+   *
+   * @var int $autorenewflag
+   * @access public
+   */
+  public $autorenewflag = null;
+
+  /**
+   *
+   * @var string $customDataXML
+   * @access public
+   */
+  public $customDataXML = null;
+
+  /**
+   *
+   * @param OrderItem $order
+   * @param string $sld
+   * @param string $tld
+   * @param string $idnScript
+   * @param int $period
+   * @param ContactInfo $registrant
+   * @param Nexus $nexus
+   * @param NS[] $nsArray
+   * @param ContactInfo $admin
+   * @param ContactInfo $billing
+   * @param ContactInfo $tech
+   * @param int $autorenewflag
+   * @param string $customDataXML
+   * @access public
+   */
+  public function __construct(OrderItem $order, $sld, $tld, $period, ContactInfo $registrant, $idnScript = null,
+      Nexus $nexus = null, $nsArray = null, ContactInfo $admin = null, ContactInfo $billing = null, ContactInfo $tech = null,
+      $autorenewflag = 0, $customDataXML = null)
+  {
+    $this->order = $order;
     $this->sld = $sld;
     $this->tld = $tld;
+    $this->idnScript = $idnScript;
     $this->period = $period;
+    $this->registrant = $registrant;
+    $this->nexus = $nexus;
     $this->nsArray = $nsArray;
-    if ($nexus) {
-      $this->nexus = (array) $nexus;
-    }
-    $this->registrant = (array) $registrant;
-    $this->admin = (array) $registrant;
-    $this->billing = (array) $registrant;
-    $this->tech = (array) $registrant;
+    $this->admin = $admin;
+    $this->billing = $billing;
+    $this->tech = $tech;
+    $this->autorenewflag = $autorenewflag;
+    $this->customDataXML = $customDataXML;
   }
 
 }

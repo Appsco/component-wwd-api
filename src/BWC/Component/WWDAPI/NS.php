@@ -2,15 +2,23 @@
 
 namespace BWC\Component\WWDAPI;
 
-class NS {
+class NS
+{
 
   /**
-   * Nameserver name
-   * @var string
+   *
+   * @var string $name
+   * @access public
    */
-  public $name;
+  public $name = null;
 
-  public function __construct($name = null) {
+  /**
+   *
+   * @param string $name
+   * @access public
+   */
+  public function __construct($name)
+  {
     $this->name = $name;
   }
 

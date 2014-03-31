@@ -2,45 +2,59 @@
 
 namespace BWC\Component\WWDAPI;
 
-class DomainRenewal {
+class DomainRenewal
+{
 
   /**
-   * Order item
-   * @var OrderItem
+   *
+   * @var OrderItem $order
+   * @access public
    */
-  public $order;
+  public $order = null;
 
   /**
-   * The resource ID
-   * @var string
+   *
+   * @var string $resourceid
+   * @access public
    */
-  public $resourceid;
+  public $resourceid = null;
 
   /**
-   * Second-level domain
-   * @var string
+   *
+   * @var string $sld
+   * @access public
    */
-  public $sld;
+  public $sld = null;
 
   /**
-   * Top-level domain
-   * @var string
+   *
+   * @var string $tld
+   * @access public
    */
-  public $tld;
+  public $tld = null;
 
   /**
-   * Length of the registration, in years
-   * Valid values for most are 1-10
-   * @var integer
+   *
+   * @var int $period
+   * @access public
    */
-  public $period;
+  public $period = null;
 
-
-  public function __construct(OrderItem $item, $resourceId, $tld, $sld, $period) {
-    $this->order = (array) $item;
-    $this->resourceid = $resourceId;
-    $this->tld = $tld;
+  /**
+   *
+   * @param OrderItem $order
+   * @param string $resourceid
+   * @param string $sld
+   * @param string $tld
+   * @param int $period
+   * @access public
+   */
+  public function __construct($order, $resourceid, $sld, $tld, $period)
+  {
+    $this->order = $order;
+    $this->resourceid = $resourceid;
     $this->sld = $sld;
+    $this->tld = $tld;
     $this->period = $period;
   }
 

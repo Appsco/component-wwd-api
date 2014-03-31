@@ -2,76 +2,123 @@
 
 namespace BWC\Component\WWDAPI;
 
-class ContactInfo {
+class ContactInfo
+{
 
   /**
-   * Contact's first name
-   * @var string
+   *
+   * @var string $fname
+   * @access public
    */
-  public $fname;
+  public $fname = null;
 
   /**
-   * Contact's last name
-   * @var string
+   *
+   * @var string $lname
+   * @access public
    */
-  public $lname;
+  public $lname = null;
 
   /**
-   * Contact's email
-   * @var string
+   *
+   * @var string $org
+   * @access public
    */
-  public $email;
+  public $org = null;
 
   /**
-   * Street address
-   * Pattern: ^[a-zA-Z0-9 #&'()+,-./:;@[\]]+$
-   * @var string
+   *
+   * @var string $email
+   * @access public
    */
-  public $sa1;
+  public $email = null;
 
   /**
-   * City of residence
-   * @var string
+   *
+   * @var string $sa1
+   * @access public
    */
-  public $city;
+  public $sa1 = null;
 
   /**
-   * State or province
-   * @var string
+   *
+   * @var string $sa2
+   * @access public
    */
-  public $sp;
+  public $sa2 = null;
 
   /**
-   * Postal code
-   * Pattern: ^[a-zA-Z0-9 #&'()+,-./:;@[\]]+$
-   * @var string
+   *
+   * @var string $city
+   * @access public
    */
-  public $pc;
+  public $city = null;
 
   /**
-   * County of residence
-   * @var string
+   *
+   * @var string $sp
+   * @access public
    */
-  public $cc;
+  public $sp = null;
 
   /**
-   * Phone number
-   * Format: +[0-9]{1,3}\.[0- 9]{1,12}
-   * Example: +1.4805058800
-   * @var string
+   *
+   * @var string $pc
+   * @access public
    */
-  public $phone;
+  public $pc = null;
 
-  public function __construct($fname, $lname, $email, $sa1, $city, $sp, $pc, $cc, $phone) {
-    $this->fname  = $fname;
-    $this->lname  = $lname;
-    $this->email  = $email;
-    $this->sa1    = $sa1;
-    $this->city   = $city;
-    $this->sp     = $sp;
-    $this->pc     = $pc;
-    $this->cc     = $cc;
-    $this->phone  = $phone;
+  /**
+   *
+   * @var string $cc
+   * @access public
+   */
+  public $cc = null;
+
+  /**
+   *
+   * @var string $phone
+   * @access public
+   */
+  public $phone = null;
+
+  /**
+   *
+   * @var string $fax
+   * @access public
+   */
+  public $fax = null;
+
+  /**
+   *
+   * @param string $fname
+   * @param string $lname
+   * @param string $org
+   * @param string $email
+   * @param string $sa1
+   * @param string $sa2
+   * @param string $city
+   * @param string $sp
+   * @param string $pc
+   * @param string $cc
+   * @param string $phone
+   * @param string $fax
+   * @access public
+   */
+  public function __construct($fname, $lname, $email, $sa1, $city, $sp, $pc, $cc, $phone, $fax = null, $org = null, $sa2 = null)
+  {
+    $this->fname = $fname;
+    $this->lname = $lname;
+    $this->org = $org;
+    $this->email = $email;
+    $this->sa1 = $sa1;
+    $this->sa2 = $sa2;
+    $this->city = $city;
+    $this->sp = $sp;
+    $this->pc = $pc;
+    $this->cc = $cc;
+    $this->phone = $phone;
+    $this->fax = $fax;
   }
 
 }

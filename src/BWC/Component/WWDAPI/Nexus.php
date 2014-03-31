@@ -2,43 +2,42 @@
 
 namespace BWC\Component\WWDAPI;
 
-class Nexus {
-
-  const USE_PERSONAL = 'personal';
-  const USE_BUSINESS_PROFIT = 'business use for profit';
-  const USE_NON_PROFIT = 'non-profit business or organization';
-  const USE_EDUCATIONAL = 'educational purpose';
-  const USE_GOVERNMENT = 'government purpose';
-
-  const CATEGORY_CITIZEN = 'citizen of US';
-  const CATEGORY_PERMANENT = 'permanent resident of US';
-  const CATEGORY_DOMICILE = 'primary domicile of US';
-  const CATEGORY_INCORPORATED = 'incorporated or organized in US';
-  const CATEGORY_FOREIGN_BUSINESS = 'foreign entity doing business in US';
-  const CATEGORY_FOREIGN_PROPERTY = 'foreign entity with office of property in US';
+class Nexus
+{
 
   /**
-   * Describes the prospective owner of the domain
-   * @var string
+   *
+   * @var string $category
+   * @access public
    */
-  public $category;
+  public $category = null;
 
   /**
-   * Describes the use of domain
-   * @var string
+   *
+   * @var string $use
+   * @access public
    */
-  public $use;
+  public $use = null;
 
   /**
-   * Two letter country code
-   * @var string
+   *
+   * @var string $country
+   * @access public
    */
-  public $Country;
+  public $country = null;
 
-  public function __construct($category, $use, $country) {
+  /**
+   *
+   * @param string $category
+   * @param string $use
+   * @param string $country
+   * @access public
+   */
+  public function __construct($category, $use, $country)
+  {
     $this->category = $category;
     $this->use = $use;
-    $this->Country = $country;
+    $this->country = $country;
   }
 
 }

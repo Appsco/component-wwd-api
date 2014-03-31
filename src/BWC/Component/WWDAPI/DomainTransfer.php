@@ -2,30 +2,60 @@
 
 namespace BWC\Component\WWDAPI;
 
-class DomainTransfer {
+class DomainTransfer
+{
 
   /**
-   * Order item
-   * @var OrderItem
+   *
+   * @var OrderItem $order
+   * @access public
    */
-  public $order;
+  public $order = null;
 
   /**
-   * Second-level domain
-   * @var string
+   *
+   * @var string $sld
+   * @access public
    */
-  public $sld;
+  public $sld = null;
 
   /**
-   * Top-level domain
-   * @var string
+   *
+   * @var string $tld
+   * @access public
    */
-  public $tld;
+  public $tld = null;
 
-  public function __construct(OrderItem $item, $tld, $sld) {
-    $this->order = (array) $item;
-    $this->tld = $tld;
+  /**
+   *
+   * @var string $authInfo
+   * @access public
+   */
+  public $authInfo = null;
+
+  /**
+   *
+   * @var string $idnScript
+   * @access public
+   */
+  public $idnScript = null;
+
+  /**
+   *
+   * @param OrderItem $order
+   * @param string $sld
+   * @param string $tld
+   * @param string $authInfo
+   * @param string $idnScript
+   * @access public
+   */
+  public function __construct($order, $sld, $tld, $authInfo, $idnScript)
+  {
+    $this->order = $order;
     $this->sld = $sld;
+    $this->tld = $tld;
+    $this->authInfo = $authInfo;
+    $this->idnScript = $idnScript;
   }
 
 }
