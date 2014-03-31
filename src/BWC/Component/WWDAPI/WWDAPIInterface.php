@@ -6,15 +6,20 @@ interface WWDAPIInterface {
 
   public function describe();
 
-  public function check(array $domains, array $hostNames, array $nameServers);
+  // checkAvailability previous check
+  public function checkAvailability(array $domains, array $hostNames, array $nameServers);
 
   public function info($resourceId = null);
 
-  public function order(Shopper $shopper, array $items, array $dbp = array());
+  // orderDomains previous order
+  public function orderDomains(Shopper $shopper, array $items, array $dbp = array());
 
-  public function privacy(Shopper $shopper, array $dbp = array());
+  // orderDomainPrivacy previouis privacy
+  public function orderDomainPrivacy(Shopper $shopper, array $dbp = array());
 
-  public function renew(Shopper $shopper, array $items);
+  // orderDomainRenewals previous renew
+  public function orderDomainRenewals(Shopper $shopper, array $items);
 
-  public function transfer(Shopper $shopper, array $items);
+  // orderDomainTransfers previous transfer
+  public function orderDomainTransfer(Shopper $shopper, array $items);
 }

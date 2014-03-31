@@ -27,7 +27,7 @@ abstract class AbstractResponse implements ResponseInterface {
   protected $_error;
   protected $_resultData = array();
 
-  private $_identifier = array();
+  protected  $_identifier = array();
 
   public function isValid() {
     if ((int) $this->_code !== 1000) {
@@ -106,7 +106,7 @@ abstract class AbstractResponse implements ResponseInterface {
   }
 
   public function setResultData($raw) {
-    $resultId = implode('', array($this->_identifier, 'Result'));
+    $resultId = implode("", array($this->_identifier, 'Result'));
     $xml = simplexml_load_string($raw->$resultId);
     $this->_resultData = $this->_parseRawResponse($xml);
   }

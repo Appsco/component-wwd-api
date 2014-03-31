@@ -24,7 +24,7 @@ class WWDAPI implements WWDAPIInterface {
    */
   private $_cltrid;
 
-  protected function _call($method, array $params) {
+  protected function call($method, array $params) {
     if (!empty($this->_soapClient) && $this->_soapClient instanceof \SoapClient) {
       if (is_callable(array($this->_soapClient, $method))) {
         $rawResponse = call_user_func_array(array($this->_soapClient, $method), array($params));
@@ -74,7 +74,7 @@ class WWDAPI implements WWDAPIInterface {
    * @return \BWC\Component\WWDAPI\Response\DescribeResponse
    */
   public function describe() {
-    return $this->_call('Describe', array(
+    return $this->call('Describe', array(
       'sCLTRID'        => $this->_cltrid,
       'credential'     => $this->_credential
     ));
@@ -88,8 +88,8 @@ class WWDAPI implements WWDAPIInterface {
    * @param array $nameServers Name servers to check
    * @return \BWC\Component\WWDAPI\Response\CheckAvailabilityResponse
    */
-  public function check(array $domains, array $hostNames, array $nameServers) {
-    return $this->_call('CheckAvailability', array(
+  public function checkAvailability(array $domains, array $hostNames, array $nameServers) {
+    return $this->call('CheckAvailability', array(
       'sCLTRID'        => $this->_cltrid,
       'credential'     => $this->_credential,
       'sDomainArray'   => $domains,
@@ -98,16 +98,17 @@ class WWDAPI implements WWDAPIInterface {
     ));
   }
 
+
   /**
    * Get information about items that have been previously ordered.
    * @param string $resourceId
    * @return \BWC\Component\WWDAPI\Response\InfoResponse
    */
   public function info($resourceId = null) {
-    return $this->_call('Info', array(
-      'sCLTRID'        => $this->_cltrid,
-      'credential'     => $this->_credential,
-      'sResourceID'    => $resourceId,
+    return $this->call('Info', array(
+      'sCLTRID'     => $this->_cltrid,
+      'credential'  => $this->_credential,
+      'sResourceID' => $resourceId,
     ));
   }
 
@@ -119,8 +120,8 @@ class WWDAPI implements WWDAPIInterface {
    * @param array $dbp Array of DomainByProxy objects. Domains that are registered via proxy
    * @return \BWC\Component\WWDAPI\Response\OrderDomainsResponse
    */
-  public function order(Shopper $shopper, array $items, array $dbp = array()) {
-    return $this->_call('OrderDomains', array(
+  public function orderDomains(Shopper $shopper, array $items, array $dbp = array()) {
+    return $this->call('OrderDomains', array(
       'sCLTRID'      => $this->_cltrid,
       'credential'   => $this->_credential,
       'shopper'      => $shopper,
@@ -136,8 +137,8 @@ class WWDAPI implements WWDAPIInterface {
    * @param array $dbp
    * @return null
    */
-  public function privacy(Shopper $shopper, array $dbp = array()) {
-    return $this->_call('OrderDomainPrivacy', array(
+  public function orderDomainPrivacy(Shopper $shopper, array $dbp = array()) {
+    return $this->call('OrderDomainPrivacy', array(
       'sCLTRID'      => $this->_cltrid,
       'credential'   => $this->_credential,
       'shopper'      => $shopper,
@@ -151,7 +152,7 @@ class WWDAPI implements WWDAPIInterface {
    * @return \BWC\Component\WWDAPI\Response\PollResponse
    */
   public function poll() {
-    return $this->_call('Poll', array(
+    return $this->call('Poll', array(
       'sCLTRID'      => $this->_cltrid,
       'credential'   => $this->_credential,
     ));
@@ -165,8 +166,8 @@ class WWDAPI implements WWDAPIInterface {
    * @param array $dbp
    * @return null
    */
-  public function renew(Shopper $shopper, array $items, array $dbp = array()) {
-    return $this->_call('OrderPrivateDomainRenewals', array(
+  public function orderDomainRenewals(Shopper $shopper, array $items, array $dbp = array()) {
+    return $this->call('OrderPrivateDomainRenewals', array(
       'sCLTRID'      => $this->_cltrid,
       'credential'   => $this->_credential,
       'shopper'      => $shopper,
@@ -175,8 +176,8 @@ class WWDAPI implements WWDAPIInterface {
     ));
   }
 
-  public function transfer(Shopper $shopper, array $items) {
-    return $this->_call('OrderDomainTransfers', array(
+  public function orderDomainTransfer(Shopper $shopper, array $items) {
+    return $this->call('OrderDomainTransfers', array(
       'sCLTRID'      => $this->_cltrid,
       'credential'   => $this->_credential,
       'shopper'      => $shopper,
@@ -187,7 +188,7 @@ class WWDAPI implements WWDAPIInterface {
   public function alternatives($domain, $excludeTaken = true, $prefix = false, $suffix = false,
                                $dashes = false, $related = false, $split = false, $baseOnTop = true,
                                $maxResults = 25) {
-    return $this->_call('NameGenDB', array(
+    return $this->call('NameGenDB', array(
       'sCLTRID'       => $this->_cltrid,
       'credential'    => $this->_credential,
       'sKey'          => $domain,
