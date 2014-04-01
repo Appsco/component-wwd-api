@@ -57,8 +57,14 @@ class Info
    * @param string $sOrderID
    * @access public
    */
-  public function __construct($sCLTRID, $credential, $sResourceID, $sType, $sDomain, $sOrderID)
-  {
+  public function __construct(
+      $sCLTRID,
+      $credential,
+      $sResourceID = null,
+      $sType = null,
+      $sDomain = null,
+      $sOrderID = null
+  ) {
     $this->sCLTRID = $sCLTRID;
     $this->credential = $credential;
     $this->sResourceID = $sResourceID;

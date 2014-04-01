@@ -905,6 +905,23 @@ class WwdApi
      */
     public function Info(Info $parameters)
     {
+
+        $response = $this->wapi->Info();
+
+//        $elem = @simplexml_load_string($response->NameGenDBResult);
+//        $list = $elem->resdata->Domains->Domain;
+//
+//        $result = array();
+//        foreach ($list as $xml) {
+//            /** @var \SimpleXMLElement $xml */
+//            $result[] = new DomainNameGenDb(
+//                (string)$xml->Name,
+//                (string)$xml->Rate,
+//                strcasecmp((string)$xml->IsTypedName, 'true') == 0 ? true : false
+//            );
+//        }
+        return $response;
+
         throw new \LogicException("Not implemented");
     }
 
