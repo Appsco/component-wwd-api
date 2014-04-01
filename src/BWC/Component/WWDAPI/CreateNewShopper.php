@@ -137,7 +137,7 @@ class CreateNewShopper
    * @param string $sShopperPin
    * @access public
    */
-  public function __construct($sCLTRID, $credential, $sPwd, $sEmail, $sFirstName, $sLastName, $sPhone, $sPwdHint, $sFax, $sCompany, $sAddress, $sCity, $sState, $sZip, $sCountry, $sShopperPin)
+  public function __construct($sCLTRID, $credential, $sPwd, $sEmail, $sFirstName, $sLastName, $sPhone, $sPwdHint = null, $sFax = null, $sCompany = null, $sAddress = null, $sCity = null, $sState = null, $sZip = null, $sCountry = null, $sShopperPin = null)
   {
     $this->sCLTRID = $sCLTRID;
     $this->credential = $credential;

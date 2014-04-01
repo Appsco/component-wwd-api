@@ -434,7 +434,10 @@ class WwdApi
      */
     public function CreateNewShopper(CreateNewShopper $parameters)
     {
-        throw new \LogicException("Not implemented");
+        $response = $this->wapi->CreateNewShopper($parameters);
+        $xml = $this->getXml($response->CreateNewShopperResult);
+        $result = $xml->resdata->shopper['user'];
+        return $result;
     }
 
     /**
