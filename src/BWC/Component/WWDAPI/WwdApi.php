@@ -228,7 +228,9 @@ class WwdApi
      */
     public function OrderDomainTransfers(OrderDomainTransfers $parameters)
     {
-        throw new \LogicException("Not implemented");
+        $response = $this->wapi->OrderDomainTransfers($parameters);
+        $xml = $this->getXml($response->OrderDomainTransfersResponse);
+        return $xml;
     }
 
     /**

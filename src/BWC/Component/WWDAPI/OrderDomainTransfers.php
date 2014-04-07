@@ -49,7 +49,7 @@ class OrderDomainTransfers
    * @param string $sROID
    * @access public
    */
-  public function __construct($sCLTRID, $credential, $shopper, $items, $sROID)
+  public function __construct($sCLTRID, $credential, $shopper, $items, $sROID = null)
   {
     $this->sCLTRID = $sCLTRID;
     $this->credential = $credential;
