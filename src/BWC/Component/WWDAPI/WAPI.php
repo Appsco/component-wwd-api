@@ -280,7 +280,18 @@ class WAPI extends \SoapClient
      */
     public function Info(Info $parameters)
     {
-        return $this->__soapCall('Info', array($parameters));
+        $return = $this->__soapCall('Info', array($parameters));
+
+        echo PHP_EOL.PHP_EOL."~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Last Request ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".PHP_EOL;
+        echo $this->__getLastRequest().PHP_EOL;
+        echo PHP_EOL.PHP_EOL."~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Last Response ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".PHP_EOL;
+        echo $this->__getLastResponse().PHP_EOL;
+        echo PHP_EOL.PHP_EOL."~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Last Request Header~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".PHP_EOL;
+        echo $this->__getLastRequestHeaders().PHP_EOL;
+        echo PHP_EOL.PHP_EOL."~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Last Response Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".PHP_EOL;
+        echo $this->__getLastResponseHeaders().PHP_EOL;
+
+        return $return;
     }
 
     /**
@@ -352,17 +363,7 @@ class WAPI extends \SoapClient
      */
     public function OrderDomains(OrderDomains $parameters)
     {
-        $ret = $this->__soapCall('OrderDomains', array($parameters));
-
-        echo PHP_EOL.PHP_EOL."~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Last Request ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".PHP_EOL;
-        echo $this->__getLastRequest().PHP_EOL;
-        echo PHP_EOL.PHP_EOL."~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Last Response ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".PHP_EOL;
-        echo $this->__getLastResponse().PHP_EOL;
-        echo PHP_EOL.PHP_EOL."~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Last Request Header~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".PHP_EOL;
-        echo $this->__getLastRequestHeaders().PHP_EOL;
-        echo PHP_EOL.PHP_EOL."~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Last Response Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".PHP_EOL;
-        echo $this->__getLastResponseHeaders().PHP_EOL;
-        return $ret;
+        return $this->__soapCall('OrderDomains', array($parameters));
     }
 
     /**
@@ -435,7 +436,19 @@ class WAPI extends \SoapClient
      */
     public function OrderDomainPrivacy(OrderDomainPrivacy $parameters)
     {
-        return $this->__soapCall('OrderDomainPrivacy', array($parameters));
+        $result = $this->__soapCall('OrderDomainPrivacy', array($parameters));
+
+        echo PHP_EOL.PHP_EOL."~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Last Request ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".PHP_EOL;
+        echo $this->__getLastRequest().PHP_EOL;
+        echo PHP_EOL.PHP_EOL."~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Last Response ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".PHP_EOL;
+        echo $this->__getLastResponse().PHP_EOL;
+        echo PHP_EOL.PHP_EOL."~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Last Request Header~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".PHP_EOL;
+        echo $this->__getLastRequestHeaders().PHP_EOL;
+        echo PHP_EOL.PHP_EOL."~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Last Response Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~".PHP_EOL;
+        echo $this->__getLastResponseHeaders().PHP_EOL;
+
+
+        return $result;
     }
 
     /**

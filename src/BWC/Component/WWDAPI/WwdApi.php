@@ -229,8 +229,8 @@ class WwdApi
     public function OrderDomainTransfers(OrderDomainTransfers $parameters)
     {
         $response = $this->wapi->OrderDomainTransfers($parameters);
-        $xml = $this->getXml($response->OrderDomainTransfersResponse);
-        return $xml;
+        //$xml = $this->getXml($response->OrderDomainTransfersResponse);
+        return $response;
     }
 
     /**
@@ -729,7 +729,7 @@ class WwdApi
     {
         $response = $this->wapi->OrderDomainRenewals($parameters);
         return $response;
-        throw new \LogicException("Not implemented");
+        //throw new \LogicException("Not implemented");
     }
 
     /**
@@ -910,7 +910,7 @@ class WwdApi
     public function Info(Info $parameters)
     {
 
-        $response = $this->wapi->Info();
+        $response = $this->wapi->Info($parameters);
 
 //        $elem = @simplexml_load_string($response->NameGenDBResult);
 //        $list = $elem->resdata->Domains->Domain;
@@ -1070,7 +1070,8 @@ class WwdApi
      */
     public function OrderDomainPrivacy(OrderDomainPrivacy $parameters)
     {
-        throw new \LogicException("Not implemented");
+        return $this->wapi->OrderDomainPrivacy($parameters);
+        //throw new \LogicException("Not implemented");
     }
 
 } 

@@ -26,17 +26,20 @@ class OrderDomainTransfersCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output){
         $api = Helper::getWwdApi();
         // $productid, $parent_resource_id = null, $quantity = 1, $riid = "1", $duration = 1.0
-        $oi = new OrderItem('851373');
-        $sld = 'tralalablabla';
-        $tld = 'biz';
-        $authInfo = '';
+
+        $oi = new OrderItem('350011');
+        $sld = 'example';
+        $tld = 'com';
+        $authInfo = '851774';
         $idnScript = '';
+
         $dt = new DomainTransfer($oi, $sld, $tld, $authInfo, $idnScript);
         $items[] = $dt;
+
         $result = $api->OrderDomainTransfers(new OrderDomainTransfers(
                 mt_rand(100,999),
                 Helper::getCredential(),
-                new Shopper('agree', '851283', 'pass'),
+                new Shopper('agree', '851773', '12345'),
                 $items
             )
         );

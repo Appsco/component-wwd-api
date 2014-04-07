@@ -45,7 +45,7 @@ class CreateShopperCommand extends Command
                 $phone
             ));
 
-        return $result;
+        return var_dump($result);
         // should connect shopper with appsco identity
     }
 

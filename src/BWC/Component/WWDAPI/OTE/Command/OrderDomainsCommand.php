@@ -52,7 +52,7 @@ class OrderDomainsCommand extends Command
         $result = $api->OrderDomains(new OrderDomains(
                 mt_rand(100,999),
                 Helper::getCredential(),
-                new Shopper('agree', '851283', 'pass'),
+                new Shopper('agree', '851773', '12345'),
                 array($domainRegistration)
             )
         );

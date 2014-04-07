@@ -15,20 +15,26 @@ class DomainInfoCommand extends Command
         $this
             ->setName('wwdapi:domain_info')
             ->setDescription('Get information about items that have been previously ordered.')
-            ->addArgument('resource', InputArgument::REQUIRED, 'Resource')
+            ->addArgument('resource', InputArgument::OPTIONAL, 'Resource')
         ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $domain = $input->getArgument('resource');
+        $resource = $input->getArgument('resource');
 
         $api = Helper::getWwdApi();
 
-        $result = $api->Info(new Info(
-                mt_rand(100,999),
-                Helper::getCredential()
-            ));
+        $info = new Info(
+            mt_rand(100,999),
+            Helper::getCredential(),
+            null,
+            null,
+            'sibljasiblja.biz',
+            '171877'
+        );
+
+        $result = $api->Info($info);
 
         var_dump($result);
     }
