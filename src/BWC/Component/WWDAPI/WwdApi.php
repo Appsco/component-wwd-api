@@ -725,6 +725,8 @@ class WwdApi
      */
     public function OrderDomainRenewals(OrderDomainRenewals $parameters)
     {
+        $response = $this->wapi->OrderDomainRenewals($parameters);
+        return $response;
         throw new \LogicException("Not implemented");
     }
 

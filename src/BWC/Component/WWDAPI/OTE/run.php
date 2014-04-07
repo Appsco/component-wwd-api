@@ -10,6 +10,6 @@ $application->add(new \BWC\Component\WWDAPI\OTE\Command\NameGenDbCommand());
 $application->add(new \BWC\Component\WWDAPI\OTE\Command\OrderDomainsCommand());
 $application->add(new \BWC\Component\WWDAPI\OTE\Command\CreateShopperCommand());
 $application->add(new \BWC\Component\WWDAPI\OTE\Command\DomainInfoCommand());
-$application->add(new \BWC\Component\WWDAPI\OTE\Command\DomainInfoCommand());
+$application->add(new \BWC\Component\WWDAPI\OTE\Command\OrderDomainRenewalsCommand());
 
 $application->run();
