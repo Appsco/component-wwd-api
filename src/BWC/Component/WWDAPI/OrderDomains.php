@@ -57,7 +57,7 @@ class OrderDomains
    * @param string $sROID
    * @access public
    */
-  public function __construct($sCLTRID, $credential, $shopper, array $items, array $dbpItems = null, $sROID = "1")
+  public function __construct($sCLTRID, $credential, $shopper, array $items = array(), array $dbpItems = null, $sROID = "1")
   {
     $this->sCLTRID = $sCLTRID;
     $this->credential = $credential;
