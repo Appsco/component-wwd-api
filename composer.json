@@ -1,18 +1,15 @@
 {
-    "name": "bwc/component-wwdapi",
-    "license": "proprietary",
+    "name": "appsco/component-wwd-api",
+    "license": "MIT",
     "type": "library",
     "description": "WWD API wrapper lib",
     "autoload": {
         "psr-0": { "": "src/" }
     },
-    "repositories": [
-        { "type": "composer", "url": "http://git.appsco.com" }
-    ],
     "require": {
         "php": ">=5.4.1",
         "symfony/console": "~2.4"
     },
     "prefer-stable": true,
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
