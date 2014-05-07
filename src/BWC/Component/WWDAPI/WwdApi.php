@@ -304,7 +304,7 @@ class WwdApi
 
         $xml = $this->getXml($response->OrderDomainsResult);
 
-        return $response;
+        return $xml;
     }
 
     /**
@@ -728,8 +728,8 @@ class WwdApi
     public function OrderDomainRenewals(OrderDomainRenewals $parameters)
     {
         $response = $this->wapi->OrderDomainRenewals($parameters);
+
         return $response;
-        //throw new \LogicException("Not implemented");
     }
 
     /**
@@ -897,7 +897,10 @@ class WwdApi
      */
     public function Poll(Poll $parameters)
     {
-        throw new \LogicException("Not implemented");
+        $response = $this->wapi->Poll($parameters);
+        $xml = simplexml_load_string($response->PollResult);
+
+        return $xml->resdata->REPORT;
     }
 
     /**
@@ -925,8 +928,6 @@ class WwdApi
 //            );
 //        }
         return $response;
-
-        throw new \LogicException("Not implemented");
     }
 
     /**

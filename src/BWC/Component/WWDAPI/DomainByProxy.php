@@ -41,7 +41,7 @@ class DomainByProxy
    * @param string $resourceid
    * @access public
    */
-  public function __construct($order, $sld, $tld, $resourceid)
+  public function __construct($order, $sld, $tld, $resourceid = null)
   {
     $this->order = $order;
     $this->sld = $sld;
